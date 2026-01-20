@@ -1,0 +1,108 @@
+.container {
+  position: relative;
+  width: 320px;
+  height: 220px;
+  background-color: transparent;
+  margin: 50px auto;
+  cursor: pointer;
+  perspective: 1000px;
+}
+
+/* The Envelope Body (Pocket) */
+.pocketBody {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #ff7e7e, #ff5e5e);
+  z-index: 10;
+  clip-path: polygon(0 0, 50% 40%, 100% 0, 100% 100%, 0 100%);
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* The Flap */
+.flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, #ff6b6b, #ff4d4d);
+  clip-path: polygon(0 0, 50% 45%, 100% 0);
+  transform-origin: top;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 11;
+  border-radius: 8px 8px 0 0;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* The Letter - Blank Paper */
+.letter {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 85%;
+  height: 120px;
+  /* Increased height for better text fit */
+  background-color: #fffbf0;
+  border-radius: 4px 4px 0 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: bottom 0.5s ease-out;
+  z-index: 5;
+  /* Keep behind pocket (10) */
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+  /* Stack text vertically */
+  align-items: center;
+  justify-content: flex-start;
+  /* Align to top to be visible */
+  padding-top: 15px;
+  /* Spacing from top edge */
+}
+
+.letterPreview {
+  text-align: center;
+}
+
+.iLoveYou {
+  font-family: 'Steph', cursive;
+  font-size: 1.8rem;
+  color: #4a4a4a;
+  margin-bottom: 5px;
+  font-weight: bold;
+  /* Bolder text */
+}
+
+.clickMe {
+  font-family: 'Steph', cursive;
+  font-size: 0.8rem;
+  /* Slightly larger */
+  color: #999;
+  font-weight: bold;
+  /* Bolder text */
+  opacity: 0.8;
+  /* More visible */
+}
+
+/* Open State */
+.open .flap {
+  transform: rotateX(180deg);
+  z-index: 1;
+}
+
+.open .letter {
+  bottom: 80px;
+  /* Slides up enough to be seen above pocket */
+  /* z-index remains 5 to stay inside/behind pocket */
+  transition-delay: 0.3s;
+}
+
+.open .letter:hover {
+  transform: translateX(-50%) translateY(-5px);
+  /* Gentle hover lift */
+  /* Remove scale to keep inside look clean */
+}

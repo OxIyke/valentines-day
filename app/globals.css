@@ -153,12 +153,13 @@ button:hover {
   }
 
   body {
-    padding-top: 100px;
+    padding-top: 60px; /* Reduced from 100px so it's not too far down */
   }
 
   .container {
     max-width: 100%;
     margin: 0;
+    padding: 0 20px; /* Add side padding */
   }
 
   #togepi-gif {
@@ -168,26 +169,28 @@ button:hover {
   }
 
   h1 {
-    font-size: 1.4rem;
-    margin: 32px auto;
+    font-size: 2rem; /* Increased from 1.4rem */
+    margin: 20px auto;
+    line-height: 1.3;
   }
 
   .btn-container {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 15px; /* Slightly more gap */
+    flex-wrap: wrap; /* Allow wrapping if needed */
   }
 
   button {
-    border-radius: 8px;
-    min-width: 60px;
-    max-width: 175px;
+    border-radius: 12px; /* Softer corners */
+    min-width: 120px; /* Wider touch target */
+    max-width: 100%;
     border: none;
     cursor: pointer;
-    padding: 10px 12px;
-    white-space: nowrap;
-    font-size: 0.8rem;
-    font-weight: 600;
+    padding: 15px 20px; /* Larger touch area */
+    white-space: normal; /* Allow text wrapping if needed */
+    font-size: 1.2rem; /* Increased from 0.8rem */
+    font-weight: 700;
     transition: transform 0.1s ease;
   }
 }

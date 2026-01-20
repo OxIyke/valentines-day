@@ -13,6 +13,11 @@ export default function Yay() {
             <div>
                 <Envelope />
             </div>
+            <div className="cta-container" style={{ marginTop: '30px', paddingBottom: '20px' }}>
+                <p className="cta-text">I choose you ❤️</p>
+            </div>
+
+
         </div>
     );
 }
